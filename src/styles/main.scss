@@ -1,0 +1,46 @@
+body {
+  font-weight: 600;
+}
+
+.game-list {
+  text-align: left;
+}
+
+table {
+  border-spacing: 0;
+}
+
+.statusRow {
+  height: 30px;
+}
+
+.gameStatus {
+  padding-left: 15px;
+}
+
+.teamName {
+  padding-right: 20px;
+  width: 13em;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.inningCol {
+  width: 15px;
+}
+
+.summaryCol {
+  width: 1em;
+}
+
+.logoColumn {
+  width: 50px;
+  height: 50px;
+  padding: 0;
+}
+
+.logoImage {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
