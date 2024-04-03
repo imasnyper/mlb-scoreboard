@@ -1,24 +1,20 @@
 import { useState, useEffect } from "react";
 import { useSetRecoilState } from "recoil";
-import { compareGamesByDate } from "../util/utils";
-import { scheduleAtom } from "../atoms/scheduleAtom";
 import { boxscoreAtom } from "../atoms/boxscoreAtom";
 
-export default function useSchedule() {
-  const setSchedule = useSetRecoilState(scheduleAtom);
+export default function useBoxscore(games) {
   const setBoxScores = useSetRecoilState(boxscoreAtom);
   const [loading, setLoading] = useState(true);
 
-  async function fetchSchedule() {
-    let response = await fetch(
-      "https://statsapi.mlb.com/api/v1/schedule?sportId=1&hydrate=decisions,probablePitcher(note),linescore,boxscore,broadcasts,game(content(media(epg))),seriesStatus"
-    );
-    let data = await response.json();
-    let games = data["dates"][0]["games"];
-    games.sort(compareGamesByDate);
-
-    setSchedule(games);
-    setLoading(false);
+  async function fetchBoxscores() {
+    games.forEach(async (game) => {
+        let response = await fetch(
+            `https://statsapi.mlb.com/api/v1/game/${game.pk}/boxscore`
+        );
+        let data = await response.json();
+        let boxscore = data["dates"][0]["games"];
+    })
+    
   }
 
   // fetch on load

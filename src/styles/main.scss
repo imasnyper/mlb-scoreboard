@@ -8,6 +8,7 @@ body {
 
 table {
   border-spacing: 0;
+  text-align: center;
 }
 
 .statusRow {
@@ -16,6 +17,7 @@ table {
 
 .gameStatus {
   padding-left: 15px;
+  font-weight: bold;
 }
 
 .teamName {
@@ -27,10 +29,12 @@ table {
 
 .inningCol {
   width: 15px;
+  font-weight: bold;
 }
 
 .summaryCol {
   width: 1em;
+  font-weight: bold;
 }
 
 .logoColumn {
@@ -42,5 +46,9 @@ table {
 .logoImage {
   width: 50px;
   height: 50px;
-  object-fit: cover;
+  object-fit: contain;
+}
+
+.inProgress {
+  background-color: rgba(0,0,0,0.2);
 }
